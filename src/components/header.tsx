@@ -6,6 +6,8 @@ import { Menu, Sun, Moon, ChevronDown } from 'lucide-react'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [solutionsOpen, setSolutionsOpen] = useState(false)
+  const [companyOpen, setCompanyOpen] = useState(false)
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm bg-transparent py-5">
@@ -21,11 +23,29 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-1">
             <nav className="relative z-10 flex max-w-max flex-1 items-center justify-center">
               <ul className="group flex flex-1 list-none items-center justify-center space-x-1">
-                <li>
-                  <button className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                <li className="relative">
+                  <button 
+                    className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                    onMouseEnter={() => setSolutionsOpen(true)}
+                    onMouseLeave={() => setSolutionsOpen(false)}
+                  >
                     Solutions
-                    <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
+                    <ChevronDown className={`relative top-[1px] ml-1 h-3 w-3 transition duration-200 ${solutionsOpen ? 'rotate-180' : ''}`} />
                   </button>
+                  {solutionsOpen && (
+                    <div 
+                      className="absolute left-0 top-full mt-2 w-64 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 py-2"
+                      onMouseEnter={() => setSolutionsOpen(true)}
+                      onMouseLeave={() => setSolutionsOpen(false)}
+                    >
+                      <Link href="/services/web-design" className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Website Design</Link>
+                      <Link href="/services/web-development" className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Website Development</Link>
+                      <Link href="/services/online-marketing" className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Online Marketing</Link>
+                      <Link href="/services/ai-social-media" className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">AI Social Media</Link>
+                      <Link href="/services/domain-names" className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Domain Names</Link>
+                      <Link href="/services/hosting" className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Hosting Services</Link>
+                    </div>
+                  )}
                 </li>
                 <li>
                   <Link 
@@ -35,11 +55,27 @@ export default function Header() {
                     Templates
                   </Link>
                 </li>
-                <li>
-                  <button className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                <li className="relative">
+                  <button 
+                    className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                    onMouseEnter={() => setCompanyOpen(true)}
+                    onMouseLeave={() => setCompanyOpen(false)}
+                  >
                     Company
-                    <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
+                    <ChevronDown className={`relative top-[1px] ml-1 h-3 w-3 transition duration-200 ${companyOpen ? 'rotate-180' : ''}`} />
                   </button>
+                  {companyOpen && (
+                    <div 
+                      className="absolute left-0 top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 py-2"
+                      onMouseEnter={() => setCompanyOpen(true)}
+                      onMouseLeave={() => setCompanyOpen(false)}
+                    >
+                      <Link href="/about" className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">About Us</Link>
+                      <Link href="/portfolio" className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Portfolio</Link>
+                      <Link href="/blog" className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Blog</Link>
+                      <Link href="/careers" className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Careers</Link>
+                    </div>
+                  )}
                 </li>
                 <li>
                   <Link 
