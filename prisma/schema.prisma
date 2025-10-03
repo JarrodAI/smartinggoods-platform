@@ -1,0 +1,183 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  businessName  String?
+  businessType  String?
+  phone         String?
+  address       String?
+  city          String?
+  state         String?
+  zipCode       String?
+  
+  // Stripe customer info
+  stripeCustomerId String? @unique
+  
+  // Subscription info
+  subscriptionStatus String? @default("inactive") // active, inactive, trial, cancelled
+  subscriptionId     String? @unique
+  priceId           String?
+  currentPeriodEnd  DateTime?
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  accounts Account[]
+  sessions Session[]
+  websites Website[]
+  payments Payment[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Website {
+  id           String   @id @default(cuid())
+  userId       String
+  name         String
+  templateType String
+  templateData Json
+  customDomain String?
+  subdomain    String   @unique
+  
+  // Deployment info
+  deploymentStatus String @default("draft") // draft, deploying, deployed, failed
+  deploymentUrl    String?
+  deployedAt       DateTime?
+  
+  // SEO and Analytics
+  seoTitle       String?
+  seoDescription String?
+  analyticsId    String?
+  
+  // Features
+  sslEnabled     Boolean @default(true)
+  backupEnabled  Boolean @default(true)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Payment {
+  id               String   @id @default(cuid())
+  userId           String
+  stripePaymentId  String   @unique
+  amount           Int      // Amount in cents
+  currency         String   @default("usd")
+  status           String   // succeeded, failed, pending
+  description      String?
+  
+  // Invoice info
+  invoiceId        String?
+  subscriptionId   String?
+  
+  createdAt DateTime @default(now())
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Template {
+  id          String @id @default(cuid())
+  name        String
+  type        String @unique // nail-salon, restaurant, fitness, etc.
+  description String
+  category    String
+  
+  // Template configuration
+  features    Json
+  pricing     Json
+  
+  // Usage stats
+  usageCount  Int @default(0)
+  rating      Float @default(0)
+  reviewCount Int @default(0)
+  
+  // Template status
+  isActive    Boolean @default(true)
+  isFeatured  Boolean @default(false)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ContactForm {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  message   String
+  source    String?  // Which page/template the form was submitted from
+  status    String   @default("new") // new, contacted, converted, closed
+  
+  createdAt DateTime @default(now())
+}
+
+model Analytics {
+  id        String   @id @default(cuid())
+  websiteId String
+  date      DateTime
+  
+  // Traffic metrics
+  pageViews    Int @default(0)
+  uniqueVisits Int @default(0)
+  bounceRate   Float @default(0)
+  
+  // Conversion metrics
+  contactForms Int @default(0)
+  phoneClicks  Int @default(0)
+  emailClicks  Int @default(0)
+  
+  // Performance metrics
+  loadTime     Float @default(0)
+  
+  @@unique([websiteId, date])
+}

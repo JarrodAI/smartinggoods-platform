@@ -1,103 +1,258 @@
-import Image from "next/image";
+import Link from 'next/link'
+import { ArrowRight, Laptop, Code, TrendingUp, Zap, MousePointer, CheckCircle } from 'lucide-react'
+import ReviewsCarousel from '@/components/reviews-carousel'
+import dynamic from 'next/dynamic'
 
-export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+const InteractiveBall = dynamic(() => import('@/components/3d/InteractiveBall'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-[500px] w-full items-center justify-center">
+      <div className="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"></div>
     </div>
-  );
+  )
+})
+
+export default function HomePage() {
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-background -z-10"></div>
+        <div className="absolute inset-0 overflow-hidden -z-10">
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-blue-200/30 dark:bg-blue-900/10 blur-3xl"></div>
+          <div className="absolute top-1/3 -left-20 w-60 h-60 rounded-full bg-purple-200/30 dark:bg-purple-900/10 blur-3xl"></div>
+        </div>
+        
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="flex flex-col items-start max-w-xl">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                Intelligent Design{' '}
+                <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+                  Ai Hosting System
+                </span>
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8">
+                We help businesses build and deploy cutting edge software technologies ( Android, iOS, Web Applications) with State of The Art Ai Coding IDE Baked into your VPS Server
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link 
+                  href="/contact"
+                  className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8"
+                >
+                  Get Started
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link 
+                  href="/intelligent-system"
+                  className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 rounded-md px-8"
+                >
+                  Inteligent System
+                </Link>
+              </div>
+            </div>
+            
+            <div className="relative h-[500px] w-full">
+              <div className="absolute w-full h-full">
+                <div className="relative w-full h-full overflow-hidden rounded-2xl">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <InteractiveBall />
+                  </div>
+                  
+                  <div className="absolute bottom-6 left-6 bg-white dark:bg-card p-4 rounded-lg shadow-lg z-10">
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-10 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                        <CheckCircle className="h-6 w-6 text-green-600 dark:text-green-400" />
+                      </div>
+                      <div>
+                        <p className="font-medium">Global Reach</p>
+                        <p className="text-xs text-muted-foreground">Serving clients worldwide</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute top-6 right-6 bg-white dark:bg-card p-4 rounded-lg shadow-lg z-10">
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
+                        <TrendingUp className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <div>
+                        <p className="font-medium">International Growth</p>
+                        <p className="text-xs text-muted-foreground">Expanding to new markets</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Digital Marketing Services</h2>
+            <p className="text-muted-foreground text-lg">Comprehensive solutions to establish and grow your online presence</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Website Design */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="mb-4">
+                  <Laptop className="h-10 w-10 text-blue-500" />
+                </div>
+                <h3 className="text-xl font-bold">Website Design</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <p className="text-muted-foreground">Beautiful, responsive websites that convert visitors into customers.</p>
+              </div>
+              <div className="flex items-center p-6 pt-0">
+                <Link href="/services/web-design" className="group flex items-center text-primary font-medium">
+                  Learn more
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Website Development */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="mb-4">
+                  <Code className="h-10 w-10 text-purple-500" />
+                </div>
+                <h3 className="text-xl font-bold">Website Development</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <p className="text-muted-foreground">Custom web applications and e-commerce solutions built with modern technologies.</p>
+              </div>
+              <div className="flex items-center p-6 pt-0">
+                <Link href="/services/web-development" className="group flex items-center text-primary font-medium">
+                  Learn more
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Online Marketing */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="mb-4">
+                  <TrendingUp className="h-10 w-10 text-green-500" />
+                </div>
+                <h3 className="text-xl font-bold">Online Marketing</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <p className="text-muted-foreground">SEO, PPC, and content marketing strategies to drive targeted traffic.</p>
+              </div>
+              <div className="flex items-center p-6 pt-0">
+                <Link href="/services/online-marketing" className="group flex items-center text-primary font-medium">
+                  Learn more
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            {/* AI Social Media */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="mb-4">
+                  <Zap className="h-10 w-10 text-orange-500" />
+                </div>
+                <h3 className="text-xl font-bold">AI Social Media</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <p className="text-muted-foreground">AI-powered social media management to grow your audience and engagement.</p>
+              </div>
+              <div className="flex items-center p-6 pt-0">
+                <Link href="/services/ai-social-media" className="group flex items-center text-primary font-medium">
+                  Learn more
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Domain Names */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="mb-4">
+                  <MousePointer className="h-10 w-10 text-red-500" />
+                </div>
+                <h3 className="text-xl font-bold">Domain Names</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <p className="text-muted-foreground">Find and secure the perfect domain name for your business.</p>
+              </div>
+              <div className="flex items-center p-6 pt-0">
+                <Link href="/services/domain-names" className="group flex items-center text-primary font-medium">
+                  Learn more
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Hosting Services */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="mb-4">
+                  <CheckCircle className="h-10 w-10 text-teal-500" />
+                </div>
+                <h3 className="text-xl font-bold">Hosting Services</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <p className="text-muted-foreground">Fast, secure, and reliable hosting for your website or application.</p>
+              </div>
+              <div className="flex items-center p-6 pt-0">
+                <Link href="/services/hosting" className="group flex items-center text-primary font-medium">
+                  Learn more
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link 
+              href="/services"
+              className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 group"
+            >
+              View All Services
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <ReviewsCarousel />
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-violet-600 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Transform Your Business?
+          </h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            Join 10,000+ successful business owners who chose SmartingGoods to grow their revenue and streamline operations.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/contact"
+              className="bg-white text-blue-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors"
+            >
+              Get Free Consultation
+            </Link>
+            <Link 
+              href="/templates"
+              className="border border-white text-white hover:bg-white hover:text-blue-600 font-medium py-3 px-8 rounded-lg transition-colors"
+            >
+              Browse Templates
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }

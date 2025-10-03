@@ -1,0 +1,617 @@
+az
+az login
+az logout
+az account
+az account list
+az account show
+az account set
+az group
+az group create
+az group delete
+az group list
+az group show
+az appservice
+az appservice plan
+az appservice plan create
+az appservice plan delete
+az appservice plan list
+az appservice plan show
+az appservice plan update
+az webapp
+az webapp create
+az webapp delete
+az webapp list
+az webapp show
+az webapp start
+az webapp stop
+az webapp restart
+az webapp config
+az webapp config appsettings
+az webapp config appsettings set
+az webapp config appsettings list
+az webapp config appsettings delete
+az webapp deployment
+az webapp deployment source
+az webapp deployment source config
+az webapp deployment source config-zip
+az webapp log
+az webapp log tail
+az webapp log download
+az postgres
+az postgres server
+az postgres server create
+az postgres server delete
+az postgres server list
+az postgres server show
+az postgres server restart
+az postgres server update
+az postgres db
+az postgres db create
+az postgres db delete
+az postgres db list
+az postgres db show
+az postgres server firewall-rule
+az postgres server firewall-rule create
+az postgres server firewall-rule delete
+az postgres server firewall-rule list
+az postgres server firewall-rule show
+az redis
+az redis create
+az redis delete
+az redis list
+az redis show
+az redis update
+az storage
+az storage account
+az storage account create
+az storage account delete
+az storage account list
+az storage account show
+az storage account keys
+az storage account keys list
+az consumption
+az consumption usage
+az consumption usage list
+npm
+npm install
+npm run
+npm run build
+npm run start
+npm run dev
+npm run test
+npm run lint
+npm version
+npm list
+npm update
+npm audit
+npm audit fix
+npx
+npx prisma
+npx prisma generate
+npx prisma db
+npx prisma db push
+npx prisma db pull
+npx prisma db seed
+npx prisma migrate
+npx prisma migrate dev
+npx prisma migrate deploy
+npx prisma migrate reset
+npx prisma studio
+npx next
+npx next build
+npx next start
+npx next dev
+npx create-next-app
+node
+node --version
+git
+git init
+git add
+git commit
+git push
+git pull
+git clone
+git status
+git log
+git branch
+git checkout
+git merge
+git remote
+git config
+powershell
+Get-Content
+Set-Content
+Copy-Item
+Move-Item
+Remove-Item
+New-Item
+Test-Path
+Get-ChildItem
+Get-Location
+Set-Location
+Invoke-WebRequest
+Invoke-RestMethod
+Start-Process
+Stop-Process
+Get-Process
+Get-Service
+Start-Service
+Stop-Service
+Restart-Service
+Get-EventLog
+Write-Host
+Write-Output
+Read-Host
+Clear-Host
+Get-Help
+Get-Command
+Get-Member
+Where-Object
+Select-Object
+Sort-Object
+Group-Object
+Measure-Object
+ForEach-Object
+Import-Module
+Export-Module
+Get-Module
+New-Guid
+Get-Date
+Set-Date
+Get-Random
+ConvertTo-Json
+ConvertFrom-Json
+ConvertTo-Csv
+ConvertFrom-Csv
+Export-Csv
+Import-Csv
+Out-File
+Get-Credential
+Test-Connection
+ping
+curl
+wget
+zip
+unzip
+tar
+gzip
+gunzip
+openssl
+ssh
+scp
+rsync
+docker
+docker build
+docker run
+docker stop
+docker start
+docker restart
+docker ps
+docker images
+docker pull
+docker push
+docker exec
+docker logs
+docker inspect
+docker rm
+docker rmi
+docker-compose
+docker-compose up
+docker-compose down
+docker-compose build
+docker-compose logs
+kubectl
+kubectl get
+kubectl describe
+kubectl create
+kubectl delete
+kubectl apply
+kubectl logs
+kubectl exec
+helm
+helm install
+helm upgrade
+helm delete
+helm list
+terraform
+terraform init
+terraform plan
+terraform apply
+terraform destroy
+terraform validate
+terraform fmt
+vercel
+vercel login
+vercel logout
+vercel deploy
+vercel list
+vercel remove
+vercel env
+vercel domains
+vercel certs
+netlify
+netlify login
+netlify logout
+netlify deploy
+netlify build
+netlify dev
+netlify env
+netlify sites
+heroku
+heroku login
+heroku logout
+heroku create
+heroku apps
+heroku config
+heroku logs
+heroku ps
+heroku run
+heroku addons
+firebase
+firebase login
+firebase logout
+firebase init
+firebase deploy
+firebase serve
+firebase use
+firebase projects
+gcloud
+gcloud auth
+gcloud auth login
+gcloud auth logout
+gcloud config
+gcloud config set
+gcloud projects
+gcloud app
+gcloud app deploy
+gcloud sql
+gcloud compute
+aws
+aws configure
+aws s3
+aws s3 cp
+aws s3 sync
+aws s3 ls
+aws ec2
+aws rds
+aws lambda
+aws cloudformation
+stripe
+stripe login
+stripe logout
+stripe listen
+stripe trigger
+stripe logs
+stripe customers
+stripe products
+stripe prices
+stripe subscriptions
+twilio
+sendgrid
+mailgun
+resend
+planetscale
+supabase
+supabase login
+supabase logout
+supabase init
+supabase start
+supabase stop
+supabase db
+supabase gen
+railway
+railway login
+railway logout
+railway deploy
+railway run
+railway logs
+fly
+flyctl
+flyctl auth
+flyctl launch
+flyctl deploy
+flyctl logs
+flyctl apps
+render
+digitalocean
+doctl
+doctl auth
+doctl apps
+doctl databases
+doctl droplets
+linode
+vultr
+cloudflare
+wrangler
+wrangler login
+wrangler logout
+wrangler publish
+wrangler dev
+wrangler kv
+wrangler pages
+github
+gh
+gh auth
+gh auth login
+gh auth logout
+gh repo
+gh repo create
+gh repo clone
+gh issue
+gh pr
+gh workflow
+gh release
+gitlab
+bitbucket
+jq
+yq
+sed
+awk
+grep
+find
+sort
+uniq
+head
+tail
+cat
+less
+more
+wc
+diff
+patch
+make
+cmake
+gcc
+g++
+clang
+python
+python3
+pip
+pip3
+pipenv
+poetry
+conda
+ruby
+gem
+bundler
+go
+cargo
+rustc
+java
+javac
+maven
+gradle
+scala
+kotlin
+swift
+php
+composer
+perl
+lua
+r
+julia
+dart
+flutter
+deno
+bun
+yarn
+pnpm
+eslint
+prettier
+tsc
+babel
+webpack
+rollup
+vite
+parcel
+gulp
+grunt
+jest
+mocha
+cypress
+playwright
+puppeteer
+selenium
+storybook
+lerna
+nx
+rush
+turbo
+pm2
+nodemon
+forever
+supervisor
+systemctl
+service
+crontab
+at
+nohup
+screen
+tmux
+htop
+top
+ps
+kill
+killall
+jobs
+bg
+fg
+nohup
+disown
+ulimit
+df
+du
+free
+lscpu
+lsmem
+lsblk
+mount
+umount
+fdisk
+parted
+mkfs
+fsck
+rsync
+scp
+sftp
+ftp
+wget
+curl
+aria2
+youtube-dl
+yt-dlp
+ffmpeg
+imagemagick
+convert
+identify
+exiftool
+pandoc
+latex
+pdflatex
+ghostscript
+inkscape
+gimp
+blender
+obs
+vlc
+mpv
+mplayer
+audacity
+sox
+lame
+flac
+opus
+x264
+x265
+handbrake
+7z
+rar
+unrar
+p7zip
+bzip2
+xz
+lz4
+zstd
+gpg
+openssl
+ssh-keygen
+ssh-add
+ssh-agent
+keychain
+pass
+vault
+age
+sops
+ansible
+ansible-playbook
+vagrant
+packer
+consul
+nomad
+vault
+boundary
+waypoint
+terraform
+pulumi
+crossplane
+argocd
+flux
+tekton
+jenkins
+gitlab-ci
+github-actions
+circleci
+travis
+appveyor
+azure-pipelines
+buildkite
+drone
+woodpecker
+concourse
+spinnaker
+octopus
+bamboo
+teamcity
+sonarqube
+snyk
+trivy
+clair
+anchore
+twistlock
+aqua
+falco
+opa
+gatekeeper
+istio
+linkerd
+consul-connect
+envoy
+nginx
+apache
+haproxy
+traefik
+caddy
+lighttpd
+tomcat
+jetty
+undertow
+gunicorn
+uwsgi
+passenger
+puma
+unicorn
+thin
+webrick
+iis
+kestrel
+hypercorn
+uvicorn
+daphne
+waitress
+cherrypy
+tornado
+flask
+django
+fastapi
+express
+koa
+hapi
+restify
+nest
+adonis
+sails
+meteor
+nuxt
+next
+gatsby
+gridsome
+vuepress
+docusaurus
+hugo
+jekyll
+hexo
+eleventy
+astro
+svelte
+sveltekit
+solid
+qwik
+remix
+blitz
+redwood
+t3
+create-react-app
+vite
+parcel
+snowpack
+esbuild
+swc
+rome
+biome
+dprint
+oxc
+rspack
+turbopack
+farm
+mako
+rolldown

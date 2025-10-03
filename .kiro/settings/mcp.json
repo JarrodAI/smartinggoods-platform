@@ -1,0 +1,34 @@
+{
+  "mcpServers": {
+    "kiro-automation-agent": {
+      "command": "python",
+      "args": ["kiro-automation-agent.py"],
+      "env": {
+        "PYTHONPATH": ".",
+        "LOG_LEVEL": "INFO"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "start_continuous_execution",
+        "get_status",
+        "execute_single_task"
+      ],
+      "disabledTools": []
+    },
+    "task-executor": {
+      "command": "uvx",
+      "args": ["task-automation-mcp@latest"],
+      "env": {
+        "WORKSPACE_PATH": ".",
+        "SPEC_PATH": ".kiro/specs/ai-powered-integrations/tasks.md"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "execute_next_task",
+        "get_task_status",
+        "update_task_progress"
+      ],
+      "disabledTools": []
+    }
+  }
+}
