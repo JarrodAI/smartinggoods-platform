@@ -437,7 +437,7 @@ export default function TemplatesPage() {
               </div>
               <p className="text-sm text-muted-foreground">
                 Classic barbershop website with online booking, barber profiles, and service menu. 
-                Perfect for traditional barbershops and men's grooming salons.
+                Perfect for traditional barbershops and men&apos;s grooming salons.
               </p>
             </div>
             
