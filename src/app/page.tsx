@@ -1,16 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, Laptop, Code, TrendingUp, Zap, MousePointer, CheckCircle } from 'lucide-react'
 import ReviewsCarousel from '@/components/reviews-carousel'
-import dynamic from 'next/dynamic'
-
-const InteractiveBall = dynamic(() => import('@/components/3d/InteractiveBall'), {
-  ssr: false,
-  loading: () => (
-    <div className="flex h-[500px] w-full items-center justify-center">
-      <div className="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"></div>
-    </div>
-  )
-})
+import InteractiveBall from '@/components/3d/InteractiveBall'
 
 export default function HomePage() {
   return (
